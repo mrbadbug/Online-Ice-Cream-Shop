@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bKash Payment</title>
+<style>
+body { font-family: Arial, sans-serif; background: #fffaf2; text-align: center; padding: 40px; }
+h2 { color: #ff66b2; }
+button { background: #ff66b2; color: white; border: none; padding: 15px 30px; font-size: 1.2em; border-radius: 8px; cursor: pointer; }
+button:hover { background: #ff99cc; }
+</style>
+</head>
+<body>
+
+<h2>Pay with bKash</h2>
+<p>Send <strong id="amount"></strong> BDT to <strong id="phone"></strong></p>
+<p>After payment, click below:</p>
+<button onclick="confirmPayment()">I have paid</button>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const amount = params.get('amount');
+const phone = params.get('phone');
+const orderId = params.get('orderId');
+
+document.getElementById('amount').textContent = amount;
+document.getElementById('phone').textContent = phone;
+
+function confirmPayment() {
+  fetch(`http://localhost:3000/api/orders/${orderId}/pay`, { method: 'POST' })
+    .then((res) => res.json())
+    .then(() => {
+      alert(`Payment confirmed for Order #${orderId}!`);
+      window.location.href = 'index.html';
+    })
+    .catch((err) => {
+      console.error(err);
+      alert('Error confirming payment, returning to homepage.');
+      window.location.href = 'index.html';
+    });
+}
+</script>
+
+</body>
+</html>
