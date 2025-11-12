@@ -1,0 +1,5 @@
+express
+sqlite3
+body-parser
+ejs
+dotenv
