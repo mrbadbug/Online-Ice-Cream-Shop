@@ -13,7 +13,6 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 
 const db = new sqlite3.Database('shop.db');
 
-// Create the orders table if not exists
 db.run(`
   CREATE TABLE IF NOT EXISTS orders (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -25,7 +24,6 @@ db.run(`
   )
 `);
 
-// Create new order
 app.post('/api/orders', (req, res) => {
   const { items, total_quantity, total_price } = req.body;
   db.run(
@@ -38,7 +36,6 @@ app.post('/api/orders', (req, res) => {
   );
 });
 
-// Get all orders
 app.get('/api/orders', (req, res) => {
   db.all(`SELECT * FROM orders ORDER BY id DESC`, [], (err, rows) => {
     if (err) return res.status(500).send(err.message);
@@ -46,7 +43,6 @@ app.get('/api/orders', (req, res) => {
   });
 });
 
-// Update order to Paid
 app.post('/api/orders/:id/pay', (req, res) => {
   const orderId = req.params.id;
   db.run(
