@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Sweet Treats Ice Cream Shop</title>
 <style>
-/* Layout & Theme */
 body {
   font-family: Arial, sans-serif;
   background: #fffaf2;
@@ -81,7 +80,6 @@ h1 {
   margin-top: 10px;
 }
 
-/* Social Media Buttons */
 .social-buttons {
   display: flex;
   justify-content: center;
@@ -107,7 +105,6 @@ h1 {
   <p>Indulge in our irresistible flavors!</p>
 </header>
 
-<!-- 6 Flavor Cards -->
 <div class="flavors">
   <div class="flavor-card">
     <img src="images/vanilla.jpg" alt="Vanilla Delight" />
@@ -158,7 +155,6 @@ h1 {
   </div>
 </div>
 
-<!-- Checkout Section -->
 <div class="checkout-table">
   <h2>Your Cart</h2>
   <table>
@@ -176,7 +172,6 @@ h1 {
   <button class="add-button" onclick="checkout()">Proceed to Checkout</button>
 </div>
 
-<!-- Social Media Section -->
 <div class="social-buttons">
   <img src="images/facebook.jpg" alt="Facebook" onclick="window.open('https://www.facebook.com','_blank')" />
   <img src="images/google.jpg" alt="Google" onclick="window.open('https://www.google.com','_blank')" />
@@ -232,7 +227,6 @@ function checkout() {
     .catch((err) => console.error(err));
 }
 
-// On load: Fetch latest order
 window.onload = () => {
   fetch('http://localhost:3000/api/orders')
     .then((res) => res.json())
