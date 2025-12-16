@@ -1,4 +1,4 @@
-**Online Ice Cream Shop**
+# Online Ice Cream Shop
 A simple online ice cream shop website built with **HTML, CSS, JavaScript, and Node.js**.  
 Includes product pages, shopping cart, and a basic payment page.
 
