@@ -9,7 +9,7 @@ Includes product pages, shopping cart, and a basic payment page.
 - Backend server using Node.js and Express
 - SQLite database for storing orders
 
-##Installation
+**Installation**
 1. Clone the repository:
 ```bash
 git clone https://github.com/mrbadbug/Online-Ice-Cream-Shop.git
